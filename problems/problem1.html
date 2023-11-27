@@ -1,0 +1,95 @@
+<div style="display: flex; align-items: flex-start; margin: 3%;"> 
+    <table id="table1">
+        <thead>
+            <caption>R1</caption>
+            <tr>
+                <th>username</th>
+                <th>phone</th>
+                <th>group</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">john</td>
+                <td contenteditable="true">123123</td>
+                <td contenteditable="true">group1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">alex</td>
+                <td contenteditable="true">133123</td>
+                <td contenteditable="true">group2</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">andrew</td>
+                <td contenteditable="true">134123</td>
+                <td contenteditable="true">group1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">jim</td>
+                <td contenteditable="true">135121</td>
+                <td contenteditable="true">group1</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="relation-button" onclick="addRow(table1)">+row</button>
+    <button class="relation-button" onclick="deleteRow(table1)">-row</button>
+</div>
+<div style="display: flex; align-items: flex-start; margin: 3%;">
+    <table id="table2">
+        <thead>
+            <caption>R2</caption>
+            <tr>
+                <th>username</th>
+                <th>phone</th>
+                <th>group</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">john</td>
+                <td contenteditable="true">123123</td>
+                <td contenteditable="true">group1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">andrew</td>
+                <td contenteditable="true">134123</td>
+                <td contenteditable="true">group1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">jim</td>
+                <td contenteditable="true">135121</td>
+                <td contenteditable="true">group1</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="relation-button" onclick="addRow(table2)">+row</button>
+    <button class="relation-button" onclick="deleteRow(table2)">-row</button>
+</div>
+<div style="display: flex; align-items: flex-start; margin: 3%;">
+    <table id="table3">
+        <thead>
+            <caption>R3</caption>
+            <tr>
+                <th>username</th>
+                <th>text</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">john</td>
+                <td contenteditable="true">qwerty</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">alex</td>
+                <td contenteditable="true">uiop</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="relation-button" onclick="addRow(table3)">+row</button>
+    <button class="relation-button" onclick="deleteRow(table3)">-row</button>
+</div>
+<script>
+    var table1 = problemScript("table1");
+    var table2 = problemScript("table2");
+    var table3 = problemScript("table3");
+</script>

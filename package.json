@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "html-table-to-json": "^1.0.0",
+    "jquery": "^3.7.1"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Single Page App</title>
+    </head>
+    <body>
+        <div>
+            <div style="margin-bottom: 20px;">
+                <button style="align-self: center;" type="button" id="execute-button">Test with custom data</button>
+                <button style="align-self: center;" type="button" id="validate-button">Send for validation</button>
+            </div>
+            <p>Request window</p>
+            <div style="display: flex; flex-direction: row; align-items: flex-start">
+                <textarea style="margin-bottom: 5px; margin-right: 5px; resize: none;" id="txtArea" rows="29" cols="100"></textarea>
+                <div style="display: flex; flex-direction: row;" id="problem"></div>
+                <script>
+                    var str = window.location.href;
+                    var n = str.lastIndexOf('/');
+                    var result = str.substring(n + 1);
+
+                    var fileName = "problems/problem" + result + ".html";
+                    if (result != 0) {
+                        $(function() {
+                            $("#problem").load(fileName);
+                        });
+                    }
+                </script>
+            </div>
+            <p>Debug window</p>
+            <div style="display: flex;">
+                <textarea id="debug-area" style="margin-bottom: 5px; margin-right: 20px; resize: none;" rows="9" cols="100"></textarea>
+                <div id="main-table"></div>
+            </div>
+            <div id="get-container" style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 20px;"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js" 
+        integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
+    </body>
+</html>
