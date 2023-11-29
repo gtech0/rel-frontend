@@ -25,7 +25,7 @@ async function execute() {
             return response.json();
         }
         return response.json().then((error) => {
-            throw new Error(error["message"]);
+            throw new Error(error["type"] + ": " + error["message"]);
         })
     })
     .then(data => {
@@ -34,8 +34,7 @@ async function execute() {
         jsonToTableGet(data["getResults"]);
     })
     .catch(function (error) {
-        console.error(error);
-        writeToDebugConsole(error);
+        writeToDebugConsole(error.message);
     })
 }
 
@@ -57,15 +56,14 @@ async function validate() {
             return response.json();
         }
         return response.json().then((error) => {
-            throw new Error(error["message"]);
+            throw new Error(error["type"] + ": " + error["message"]);
         })
     })
     .then(data => {
         writeValidationResult(data["result"]);
     })
     .catch(function (error) {
-        console.error(error);
-        writeToDebugConsole(error);
+        writeToDebugConsole(error.message);
     })
 }
 
@@ -95,6 +93,8 @@ function writeToDebugConsole(data) {
 
 function clearHTML() {
     $("#main-table").empty();
+    document.getElementById("main-table").value = "";
+    $("#debug-area").empty();
     document.getElementById("debug-area").value = "";
 }
 
@@ -128,6 +128,7 @@ function writeValidationResult(data) {
 // json stuff
 
 function finalResult(data, key) {
+    let result = "";
     if (data.length == 0) {
         writeToDebugConsole("Empty relation " + key);
     } else {
@@ -172,7 +173,7 @@ const insertInArray = (arr, index, newItem) => [
     ...arr.slice(0, index),
     newItem,
     ...arr.slice(index)
-  ]
+]
 
 function mapTableHead(data) {
     let tags = "";
