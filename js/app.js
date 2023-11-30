@@ -139,8 +139,20 @@ function finalResult(data, key) {
 
 function addToDict(tableId) {
     var tableName = document.querySelector("#" + tableId + " caption").innerHTML;
-    var table = $("#" + tableId).tableToJSON();
-    relations[tableName] = table;
+    var myRows = [];
+    var $headers = $("#" + tableId + " th");
+    $("#" + tableId + " tbody tr").each(function(index) {
+        if (index != 0) {
+            var realIndex = index - 1;
+            $cells = $(this).find("td");
+            myRows[realIndex] = {};
+            $cells.each(function(cellIndex) {
+                myRows[realIndex][$($headers[cellIndex]).html()] = [$(this).html()];
+            });
+        }
+    });
+
+    relations[tableName] = myRows;
 }
 
 function jsonToTableCommon(data, key) {
