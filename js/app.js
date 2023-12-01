@@ -147,7 +147,9 @@ function addToDict(tableId) {
             $cells = $(this).find("td");
             myRows[realIndex] = {};
             $cells.each(function(cellIndex) {
-                myRows[realIndex][$($headers[cellIndex]).html()] = [$(this).html()];
+                var value = $(this).html();
+                if (value.length > 0) myRows[realIndex][$($headers[cellIndex]).html()] = [value];
+                else myRows[realIndex][$($headers[cellIndex]).html()] = [];
             });
         }
     });
