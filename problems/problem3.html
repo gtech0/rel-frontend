@@ -1,0 +1,67 @@
+<div style="display: flex; align-items: flex-start; margin: 3%;"> 
+    <table id="table1">
+        <thead>
+            <caption>Completed</caption>
+            <tr>
+                <th>Student</th>
+                <th>Task</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">Fred</td>
+                <td contenteditable="true">Database1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Fred</td>
+                <td contenteditable="true">Database2</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Fred</td>
+                <td contenteditable="true">Complier1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Eugene</td>
+                <td contenteditable="true">Database1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Eugene</td>
+                <td contenteditable="true">Complier1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Sarah</td>
+                <td contenteditable="true">Database1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Sarah</td>
+                <td contenteditable="true">Database2</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="relation-button" onclick="addRow(table1)">+row</button>
+    <button class="relation-button" onclick="deleteRow(table1)">-row</button>
+</div>
+<div style="display: flex; align-items: flex-start; margin: 3%;">
+    <table id="table2">
+        <thead>
+            <caption>DBProject</caption>
+            <tr>
+                <th>Task</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">Database1</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Database2</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="relation-button" onclick="addRow(table2)">+row</button>
+    <button class="relation-button" onclick="deleteRow(table2)">-row</button>
+</div>
+<script>
+    var table1 = problemScript("table1");
+    var table2 = problemScript("table2");
+</script>
