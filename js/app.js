@@ -216,11 +216,25 @@ function mapTableHead(data) {
 
 function mapTableBody(data) {
     let tags = "";
+
+    var maxDict = {};
+    data.forEach(element => {
+        for (const [key, values] of Object.entries(element)) {
+            maxDict[key] = values.length;
+        }
+    });
+
     data.forEach(element => {
         tags += "<tr>";
         for (const [key, values] of Object.entries(element)) {
+            let insertionCount = 0;
             for (const value of values) {
                 tags += `<td>${value}</td>`;
+                insertionCount++;
+            }
+
+            if (insertionCount < maxDict[key]) {
+                tags += `<td></td>`;
             }
         }
         tags += "</tr>";
