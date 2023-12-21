@@ -24,8 +24,8 @@ async function execute() {
         if (response.ok) {
             return response.json();
         }
-        return response.json().then((error) => {
-            throw new Error(error["type"] + ": " + error["message"]);
+        return response.text().then((error) => {
+            throw new Error(error);
         })
     })
     .then(data => {
@@ -53,14 +53,14 @@ async function validate() {
     })
     .then(response => {
         if (response.ok) {
-            return response.json();
+            return response.text();
         }
-        return response.json().then((error) => {
-            throw new Error(error["type"] + ": " + error["message"]);
+        return response.text().then((error) => {
+            throw new Error(error);
         })
     })
     .then(data => {
-        writeValidationResult(data["result"]);
+        writeValidationResult(data);
     })
     .catch(function (error) {
         writeToDebugConsole(error.message);
